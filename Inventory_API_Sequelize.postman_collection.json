@@ -1,0 +1,95 @@
+{
+  "info": {
+    "name": "Inventory API - Sequelize",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type","value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin_gudang\",\n  \"password\": \"rahasia123\"\n}"
+            },
+            "url": {"raw": "http://localhost:3000/auth/register","host": ["http://localhost","3000"],"path": ["auth","register"]}
+          }
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type","value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"admin_gudang\",\n  \"password\": \"rahasia123\"\n}"
+            },
+            "url": {"raw": "http://localhost:3000/auth/login","host": ["http://localhost","3000"],"path": ["auth","login"]}
+          }
+        }
+      ]
+    },
+    {
+      "name": "Items",
+      "item": [
+        {
+          "name": "Create Item",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Content-Type","value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Monitor Dell 24 Inch\",\n  \"description\": \"Monitor IPS 1080p\",\n  \"stock\": 20,\n  \"price\": 2500000\n}"
+            },
+            "url": {"raw": "http://localhost:3000/items","host": ["http://localhost","3000"],"path": ["items"]}
+          }
+        },
+        {
+          "name": "Get All Items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:3000/items?page=1&limit=5&search=Monitor",
+              "host": ["http://localhost","3000"],
+              "path": ["items"],
+              "query": [
+                {"key": "page","value": "1"},
+                {"key": "limit","value": "5"},
+                {"key": "search","value": "Monitor"}
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Item",
+          "request": {
+            "method": "PUT",
+            "header": [{"key": "Content-Type","value": "application/json"}],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Monitor Dell 24 Inch\",\n  \"description\": \"Monitor IPS 1080p (Updated)\",\n  \"stock\": 15,\n  \"price\": 2600000\n}"
+            },
+            "url": {"raw": "http://localhost:3000/items/1","host": ["http://localhost","3000"],"path": ["items","1"]}
+          }
+        },
+        {
+          "name": "Delete Item",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {"raw": "http://localhost:3000/items/1","host": ["http://localhost","3000"],"path": ["items","1"]}
+          }
+        }
+      ],
+      "auth": {
+        "type": "bearer",
+        "bearer": [{"key": "token","value": "PASTE_TOKEN_ANDA_DI_SINI","type": "string"}]
+      }
+    }
+  ]
+}
